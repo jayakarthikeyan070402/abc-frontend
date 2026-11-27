@@ -3,14 +3,14 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'ca-central-1'
-        S3_BUCKET = 'siva-first-2026-bucket '
-        CLOUDFRONT_DISTRIBUTION_ID = 'EDPAAHI47E407'
+        S3_BUCKET = 'karthik-frontend-2026 '
+        CLOUDFRONT_DISTRIBUTION_ID = 'E204QJRLTLZ5GI'
     }
 
     stages {
         stage ('clone frontend repo') {
             steps {
-              git url:'https://github.com/Siva290395/abc-frontend.git',branch:'main',credentialsId:'github-credentials'
+              git https://github.com/jayakarthikeyan070402/abc-frontend.git',branch:'main',credentialsId:'github-credentials'
             }
         }
         stage ('install & build') {
