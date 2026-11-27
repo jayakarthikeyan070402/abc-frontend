@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage ('clone frontend repo') {
             steps {
-              git 'https://github.com/jayakarthikeyan070402/abc-frontend.git',branch:'main',credentialsId:'github-credentials'
+              git 'https://github.com/jayakarthikeyan070402/abc-frontend.git',branch:'main',credentialsId:'jayakarthikeyan070402'
             }
         }
         stage ('install & build') {
@@ -23,7 +23,7 @@ pipeline {
         }
         stage ('deploy to s3') {
             steps {
-                withAWS(credentials: 'aws-credssiva',region: 'ca-central-1') {
+                withAWS(credentials: 'aws-task-cred',region: 'ca-central-1') {
                     sh '''
                     echo "uploading to s3"
                     aws s3 sync build/ s3://$S3_BUCKET --delete
