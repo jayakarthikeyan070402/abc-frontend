@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         AWS_DEFAULT_REGION = 'ca-central-1'
-        S3_BUCKET = 'karthik-frontend-2026 '
+        S3_BUCKET = 'karthik-frontend-2026'
         CLOUDFRONT_DISTRIBUTION_ID = 'E204QJRLTLZ5GI'
     }
 
