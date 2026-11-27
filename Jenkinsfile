@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage ('clone frontend repo') {
             steps {
-              git 'https://github.com/jayakarthikeyan070402/abc-frontend.git',branch:'main',credentialsId:'jayakarthikeyan070402'
+              git 'https://github.com/jayakarthikeyan070402/abc-frontend.git',branch:'main',credentialsId:'karthikeyan070402'
             }
         }
         stage ('install & build') {
