@@ -25,14 +25,11 @@ pipeline {
 
         stage('deploy to s3') {
             steps {
-                withAWS(credentials: 'aws-task-cred', region: 'ca-central-1') {
-                    sh 'echo "uploading to s3"'
+                withCredentials([usernamePassword(
+                    credentialsId: 'aws-task-cred',
+                    usernameVariable: 'AWS_ACCESS_KEY_ID',
+                    passwordVariable: 'AWS_SECRET_ACCESS_KEY'
+                )]) {
                     sh 'aws s3 sync build/ s3://$S3_BUCKET --delete'
-
-                    sh 'echo "invalidating cloudfront cache"'
                     sh 'aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"'
                 }
-            }
-        }
-    }
-}
