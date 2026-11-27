@@ -12,7 +12,7 @@ pipeline {
             steps {
                 git url: 'https://github.com/jayakarthikeyan070402/abc-frontend.git',
                     branch: 'main',
-                    credentialsId: 'karthikeyan070402'
+                    credentialsId: 'jayakarthikeyan070402'
             }
         }
 
